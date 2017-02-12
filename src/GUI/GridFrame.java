@@ -57,13 +57,13 @@ public class GridFrame extends JFrame{
 		String labelText = "<html>";
 		int dust = c.getDustLevel();
 		if (c.hasJewel() && dust > 0) {
-			this.addIcon(l, "icons/jewel_dust.png");
+			this.addIcon(l, "/icons/jewel_dust.png");
 			labelText += "x " + dust;
 		} else if (dust > 0) {
-			this.addIcon(l, "icons/dust.png");
+			this.addIcon(l, "/icons/dust.png");
 			labelText += "x " + dust;
 		} else if (c.hasJewel()) {
-			this.addIcon(l, "icons/jewel.png");
+			this.addIcon(l, "/icons/jewel.png");
 		}
 		labelText += "</html>";
 		l.setText(labelText);
@@ -87,7 +87,7 @@ public class GridFrame extends JFrame{
 		this.formatLabel(this.refreshLabel);
 		this.jewelLabel = new JLabel("<html>&nbsp;&nbsp;Lost jewels : " + this.lostJewels + "</html>", JLabel.CENTER);
 		this.formatLabel(this.jewelLabel);
-		this.addIcon(this.jewelLabel, "icons/jewel.png");
+		this.addIcon(this.jewelLabel, "/icons/jewel.png");
 		this.jpanelRobot.add(refreshLabel);
 		this.jpanelRobot.add(jewelLabel);
 	}
@@ -105,7 +105,7 @@ public class GridFrame extends JFrame{
 	}
 	
 	private void addIcon(JLabel label, String iconPath) {
-		ImageIcon icon = new ImageIcon(iconPath);
+		ImageIcon icon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource(iconPath)));
 		label.setIcon(icon);
 	}
 	
